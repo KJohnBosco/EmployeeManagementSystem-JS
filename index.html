@@ -36,12 +36,22 @@
         </div>
         <!-- Navigations Area -->
         <ul>
-          <li class="current">Home</li>
-          <li>Add Employees</li>
-          <li>Remove Employees</li>
-          <li>Edit Profiles</li>
-          <li>Check Profiles</li>
-          <li>All Profiles</li>
+          <li id="homeNav" class="current" onclick="showPanel('homeNav')">
+            Home
+          </li>
+          <li id="addEmpNav" onclick="showPanel('addEmpNav')">Add Employees</li>
+          <li id="removeEmpNav" onclick="showPanel('removeEmpNav')">
+            Remove Employees
+          </li>
+          <li id="editEmpNav" onclick="showPanel('editEmpNav')">
+            Edit Profiles
+          </li>
+          <li id="checkEmpNav" onclick="showPanel('checkEmpNav')">
+            Check Profiles
+          </li>
+          <li id="showAllEmpNav" onclick="showPanel('showAllEmpNav')">
+            All Profiles
+          </li>
         </ul>
         <!-- Settings Area -->
         <div class="settings">
@@ -64,12 +74,12 @@
           </p>
         </div>
         <div class="panels">
-          <div id="home" class="activePanel"></div>
-          <div id="addEmployees"></div>
-          <div id="removeEmployees"></div>
-          <div id="editProfiles"></div>
-          <div id="checkProfiles"></div>
-          <div id="allProfiles"></div>
+          <div class="panel activePanel" id="home"></div>
+          <div class="panel" id="addEmployees"></div>
+          <div class="panel" id="removeEmployees"></div>
+          <div class="panel" id="editProfiles"></div>
+          <div class="panel" id="checkProfiles"></div>
+          <div class="panel" id="allProfiles"></div>
         </div>
       </section>
     </main>

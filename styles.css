@@ -97,7 +97,9 @@ main {
 }
 
 #navigationsPanel > ul li:hover {
-  background-image: linear-gradient(to right, #f4f4f4, #f4f4f4, #f4f4f4, #fff);
+  background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+  color: #fff;
+  filter: opacity(70%);
 }
 
 .current {

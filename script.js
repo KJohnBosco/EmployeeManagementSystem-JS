@@ -9,6 +9,8 @@
  *Display Department Employees
  */
 
+///////////// SYSTEM CODE LOGIC /////////////////
+/*
 const employee = {
   // Object Variables
   id: "Unregisterd",
@@ -235,3 +237,82 @@ employee.editEmployeeDetails("FD001MCEMP26F", "name", "Matildah Miles");
 employee.editEmployeeDetails("FD001MCEMP26F", "title", "Assistant CEO");
 
 employee.allEmployees();
+*/
+
+// IMPLEMENTATIONS
+// hide all panels function
+function hidePanels() {
+  // Retrieve all elements with "panel" class
+  const allPanels = document.querySelectorAll(".panel");
+
+  // Remove the "activePanel" class from any of the pnael containing it
+  for (const panel of allPanels) {
+    panel.classList.contains("activePanel")
+      ? panel.classList.remove("activePanel")
+      : console.log();
+  }
+}
+
+// Triger panel display using panel id
+// function addActive(panelID) {}
+
+// triger panel function
+function showPanel(buttonID) {
+  let panel;
+
+  switch (buttonID) {
+    case "homeNav":
+      // Retrieve home panel
+      panel = document.getElementById("home");
+
+      // deactivate all active panels
+      hidePanels();
+
+      // activate home panel
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+    case "addEmpNav":
+      panel = document.getElementById("addEmployees");
+      hidePanels();
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+    case "removeEmpNav":
+      panel = document.getElementById("removeEmployees");
+      hidePanels();
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+    case "editEmpNav":
+      panel = document.getElementById("editProfiles");
+      hidePanels();
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+    case "checkEmpNav":
+      panel = document.getElementById("checkProfiles");
+      hidePanels();
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+    case "showAllEmpNav":
+      panel = document.getElementById("showAllEmpNav");
+      hidePanels();
+      panel.classList.add("activePanel");
+
+      // visual data testing
+      console.log(panel.classList, panel.id);
+      break;
+  }
+}
