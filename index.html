@@ -28,6 +28,7 @@
       <button class="getStarted">Get Started &rarr;</button>
     </section>
     <main>
+      <!-- Navigations Panel -->
       <aside id="navigationsPanel">
         <!-- logo area -->
         <div class="logo">
@@ -35,7 +36,7 @@
         </div>
         <!-- Navigations Area -->
         <ul>
-          <li>Home</li>
+          <li class="current">Home</li>
           <li>Add Employees</li>
           <li>Remove Employees</li>
           <li>Edit Profiles</li>
@@ -43,8 +44,34 @@
           <li>All Profiles</li>
         </ul>
         <!-- Settings Area -->
-        <div class="settings">Settings</div>
+        <div class="settings">
+          <h4>Settings</h4>
+          <ul>
+            <li>Theme</li>
+            <li>Font size</li>
+            <li>Security</li>
+          </ul>
+          <p>Version: 1.0.0</p>
+        </div>
       </aside>
+
+      <!-- Main Section -->
+      <section id="mainSection">
+        <div class="headerSection">
+          <h2 id="sectionTitle">Employee Management System</h2>
+          <p id="sectionDescription">
+            Manage all your staff in a centralized place
+          </p>
+        </div>
+        <div class="panels">
+          <div id="home" class="activePanel"></div>
+          <div id="addEmployees"></div>
+          <div id="removeEmployees"></div>
+          <div id="editProfiles"></div>
+          <div id="checkProfiles"></div>
+          <div id="allProfiles"></div>
+        </div>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>
