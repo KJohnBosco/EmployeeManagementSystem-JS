@@ -313,6 +313,7 @@ function checkID(searchID) {
           // Defaults
         } else {
           // Defaults
+          console.error("Error: All conditions not meet");
         }
       }
       break;
@@ -322,6 +323,44 @@ function checkID(searchID) {
       break;
   }
 }
+
+// DISPLAY ALL EMPLOYEES' PROFILES
+let position = 0;
+
+function changeEmployeePosition(navPosition) {
+  document.getElementById("allID").textContent =
+    employee.employeeList[navPosition].id;
+  document.getElementById("allName").textContent =
+    employee.employeeList[navPosition].name;
+  document.getElementById("allTitle").textContent =
+    employee.employeeList[navPosition].title;
+  document.getElementById("allDepartment").textContent =
+    employee.employeeList[navPosition].department;
+  document.getElementById("allGender").textContent =
+    employee.employeeList[navPosition].gender;
+  document.getElementById("allAge").textContent =
+    employee.employeeList[navPosition].age;
+  document.getElementById("allSalary").textContent =
+    employee.employeeList[navPosition].salary;
+  document.getElementById("allPay").textContent =
+    employee.employeeList[navPosition].paymentPeriod;
+}
+
+changeEmployeePosition(position);
+
+// Update navigation position
+document.getElementById("navLeft").addEventListener("click", () => {
+  if (position > 0) {
+    position--;
+  }
+  changeEmployeePosition(position);
+});
+document.getElementById("navRight").addEventListener("click", () => {
+  if (position < employee.employeeList.length - 1) {
+    position++;
+  }
+  changeEmployeePosition(position);
+});
 
 ////////////////////////////////////////
 ///////////////////////////////

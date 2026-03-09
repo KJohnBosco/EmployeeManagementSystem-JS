@@ -130,6 +130,40 @@
     color: #ffffff;
     font-size: clamp(1rem, 3vw, 1.5rem);
   }
+
+  .contents {
+    & > p {
+      margin-top: 15px;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+
+  & > p {
+    text-align: center;
+    color: #05000e;
+
+    span {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      font-size: clamp(1.3rem, 3vw, 1.5rem);
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0px 5px 5px #05000e;
+      }
+
+      &:active {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
 }
 
 @media (max-width: 650px) {
