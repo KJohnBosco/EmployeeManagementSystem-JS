@@ -523,3 +523,7 @@ ul {
   margin: auto auto;
   cursor: pointer;
 }
+
+.buttons {
+  display: flex;
+}
