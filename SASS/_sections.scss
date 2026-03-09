@@ -1,0 +1,34 @@
+/* Main Section styles */
+#mainSection {
+  height: 100vh;
+  flex-grow: 1;
+  border-left: 2px solid hsl(0, 0%, 100%, 50%);
+  position: relative;
+  background-color: #05000e;
+
+  /* Main Panels */
+  & .panels {
+    width: 100%;
+    height: 100%;
+
+    & > div {
+      padding: 85px 25px 25px;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    & .activePanel {
+      display: block;
+    }
+  }
+}
+
+.headerSection {
+  text-align: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  color: #05000e;
+  position: absolute;
+  width: 100%;
+}

@@ -11,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./CSS/main.css" />
     <title>Employee Management System</title>
   </head>
   <body>
@@ -36,20 +36,26 @@
         </div>
         <!-- Navigations Area -->
         <ul>
-          <li id="homeNav" class="current" onclick="showPanel('homeNav')">
+          <li class="nav current" id="homeNav" onclick="showPanel('homeNav')">
             Home
           </li>
-          <li id="addEmpNav" onclick="showPanel('addEmpNav')">Add Employees</li>
-          <li id="removeEmpNav" onclick="showPanel('removeEmpNav')">
+          <li class="nav" id="addEmpNav" onclick="showPanel('addEmpNav')">
+            Add Employees
+          </li>
+          <li class="nav" id="removeEmpNav" onclick="showPanel('removeEmpNav')">
             Remove Employees
           </li>
-          <li id="editEmpNav" onclick="showPanel('editEmpNav')">
+          <li class="nav" id="editEmpNav" onclick="showPanel('editEmpNav')">
             Edit Profiles
           </li>
-          <li id="checkEmpNav" onclick="showPanel('checkEmpNav')">
+          <li class="nav" id="checkEmpNav" onclick="showPanel('checkEmpNav')">
             Check Profiles
           </li>
-          <li id="showAllEmpNav" onclick="showPanel('showAllEmpNav')">
+          <li
+            class="nav"
+            id="showAllEmpNav"
+            onclick="showPanel('showAllEmpNav')"
+          >
             All Profiles
           </li>
         </ul>
@@ -74,8 +80,44 @@
           </p>
         </div>
         <div class="panels">
-          <div class="panel activePanel" id="home"></div>
-          <div class="panel" id="addEmployees"></div>
+          <div class="panel activePanel" id="home">
+            <h2>Home Panel</h2>
+          </div>
+          <div class="panel" id="addEmployees">
+            <fieldset>
+              <legend>New*</legend>
+              <form action="">
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="formGroup">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+              </form>
+            </fieldset>
+          </div>
           <div class="panel" id="removeEmployees"></div>
           <div class="panel" id="editProfiles"></div>
           <div class="panel" id="checkProfiles"></div>

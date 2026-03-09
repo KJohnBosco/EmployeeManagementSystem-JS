@@ -241,14 +241,22 @@ employee.allEmployees();
 
 // IMPLEMENTATIONS
 // hide all panels function
-function hidePanels() {
+function deactivatePanels() {
   // Retrieve all elements with "panel" class
   const allPanels = document.querySelectorAll(".panel");
+  const allNavs = document.querySelectorAll(".nav");
 
-  // Remove the "activePanel" class from any of the pnael containing it
+  // Remove the "activePanel" class from any of the panels containing it
   for (const panel of allPanels) {
     panel.classList.contains("activePanel")
       ? panel.classList.remove("activePanel")
+      : console.log();
+  }
+
+  // Remove the "current" class from any of the navs containing it
+  for (const nav of allNavs) {
+    nav.classList.contains("current")
+      ? nav.classList.remove("current")
       : console.log();
   }
 }
@@ -256,60 +264,79 @@ function hidePanels() {
 // Triger panel display using panel id
 // function addActive(panelID) {}
 
-// triger panel function
+// NAVIGATION PANEL SWITCH
 function showPanel(buttonID) {
   let panel;
 
   switch (buttonID) {
+    // HOME PANEL
     case "homeNav":
       // Retrieve home panel
       panel = document.getElementById("home");
 
-      // deactivate all active panels
-      hidePanels();
+      // deactivate all active panels & current navigation buttons
+      deactivatePanels();
 
       // activate home panel
       panel.classList.add("activePanel");
 
+      // Update current nav button
+      document.getElementById(buttonID).classList.add("current");
+
       // visual data testing
       console.log(panel.classList, panel.id);
       break;
+
+    // ADD EMLOYEES PANEL
     case "addEmpNav":
       panel = document.getElementById("addEmployees");
-      hidePanels();
+      deactivatePanels();
       panel.classList.add("activePanel");
+      document.getElementById(buttonID).classList.add("current");
 
       // visual data testing
       console.log(panel.classList, panel.id);
       break;
+
+    // REMOVE EMPLOYEES PANEL
     case "removeEmpNav":
       panel = document.getElementById("removeEmployees");
-      hidePanels();
+      deactivatePanels();
       panel.classList.add("activePanel");
+      document.getElementById(buttonID).classList.add("current");
 
       // visual data testing
       console.log(panel.classList, panel.id);
       break;
+
+    // EDIT EMPLOYEES DETAILS PANEL
     case "editEmpNav":
       panel = document.getElementById("editProfiles");
-      hidePanels();
+      deactivatePanels();
       panel.classList.add("activePanel");
+      document.getElementById(buttonID).classList.add("current");
 
       // visual data testing
       console.log(panel.classList, panel.id);
       break;
+
+    // CHECK EMPLOYEE DETAILS PANEL
     case "checkEmpNav":
       panel = document.getElementById("checkProfiles");
-      hidePanels();
+      deactivatePanels();
       panel.classList.add("activePanel");
+      document.getElementById(buttonID).classList.add("current");
 
       // visual data testing
       console.log(panel.classList, panel.id);
       break;
+
+    // SHOW ALL EMPLOYEES PANEL
     case "showAllEmpNav":
       panel = document.getElementById("showAllEmpNav");
-      hidePanels();
+      deactivatePanels();
       panel.classList.add("activePanel");
+      document.getElementById(buttonID).classList.add("current");
 
       // visual data testing
       console.log(panel.classList, panel.id);

@@ -1,0 +1,212 @@
+/* Home Panel */
+#home {
+  background-color: blue;
+}
+
+/* Add Employees Panel */
+#addEmployees {
+  background-color: orange;
+}
+
+/* Remove Employees Panel */
+#removeEmployees {
+  background-color: #00ff55;
+}
+
+/* Edit Profiles Panel */
+#editProfiles {
+  background-color: red;
+}
+
+/* Check Profiles Panel */
+#checkProfiles {
+  background-color: gray;
+}
+
+/* All Profiles Panel */
+#allProfiles {
+  background-color: purple;
+}
+
+/* Navigation Panel Styles */
+#navigationsPanel {
+  background-color: #fff;
+  height: 100vh;
+  width: fit-content;
+  position: relative;
+}
+#navigationsPanel .logo {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  background-color: #05000e;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+#navigationsPanel > ul {
+  padding: 25px 0;
+}
+#navigationsPanel > ul li {
+  font-weight: bold;
+  padding: 2vh 35px;
+  cursor: pointer;
+}
+#navigationsPanel > ul li:hover {
+  background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+  color: #fff;
+  filter: opacity(70%);
+}
+#navigationsPanel .current {
+  background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+  color: #fff;
+}
+#navigationsPanel .current:hover {
+  background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+  color: #fff;
+  filter: opacity(90%);
+}
+
+/* Settings section styles */
+.settings {
+  position: absolute;
+  bottom: 0;
+  min-height: 5vh;
+  width: 100%;
+  background-color: #05000e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 2s ease;
+}
+.settings h4 {
+  padding: 0 10px;
+}
+.settings p,
+.settings ul {
+  display: none;
+  transition: all 1.5s ease;
+}
+.settings ul li {
+  padding: 10px 10px 10px 20px;
+  width: 100%;
+}
+.settings ul li:hover {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+.settings p {
+  font-size: clamp(0.5rem, 3vw, 0.9rem);
+  padding-left: 10px;
+  filter: opacity(50%);
+}
+.settings:hover {
+  height: fit-content;
+}
+.settings:hover h4 {
+  height: fit-content;
+  margin-bottom: 10px;
+}
+.settings:hover p,
+.settings:hover ul {
+  display: block;
+}
+
+/* Splah Screen Styels */
+.splashScreen {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #f4f4f4;
+  gap: 10px;
+}
+.splashScreen h1 {
+  font-size: clamp(1rem, 6vw, 3.5rem);
+  font-weight: 900;
+  text-align: center;
+  background-image: linear-gradient(to right, #ff4501, #00ffff);
+  background-clip: text;
+  color: transparent;
+}
+.splashScreen ul {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+}
+.splashScreen ul li {
+  background-color: hsla(0, 0%, 96%, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px 8px;
+}
+.splashScreen > button {
+  margin-top: 10px;
+  padding: 10px 35px;
+  border-radius: 10px;
+  border: 2px solid #f4f4f4;
+  cursor: pointer;
+  filter: brightness(80%);
+}
+.splashScreen > button:hover {
+  filter: brightness(100%);
+}
+
+/* Main Section Screen */
+main {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  /* display: grid;
+    grid-template-columns: 1fr 4fr; */
+}
+
+/* Main Section styles */
+#mainSection {
+  height: 100vh;
+  flex-grow: 1;
+  border-left: 2px solid hsla(0, 0%, 100%, 0.5);
+  position: relative;
+  background-color: #05000e;
+  /* Main Panels */
+}
+#mainSection .panels {
+  width: 100%;
+  height: 100%;
+}
+#mainSection .panels > div {
+  padding: 85px 25px 25px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#mainSection .panels .activePanel {
+  display: block;
+}
+
+.headerSection {
+  text-align: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  color: #05000e;
+  position: absolute;
+  width: 100%;
+}
+
+body {
+  background-color: #05000e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}

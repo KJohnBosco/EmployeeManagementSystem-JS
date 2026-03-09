@@ -1,0 +1,98 @@
+/* Navigation Panel Styles */
+#navigationsPanel {
+  background-color: #fff;
+  height: 100vh;
+  width: fit-content;
+  position: relative;
+
+  .logo {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    background-color: #05000e;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  & > ul {
+    padding: 25px 0;
+
+    li {
+      font-weight: bold;
+      padding: 2vh 35px;
+      cursor: pointer;
+
+      &:hover {
+        background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+        color: #fff;
+        filter: opacity(70%);
+      }
+    }
+  }
+
+  .current {
+    background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+    color: #fff;
+
+    &:hover {
+      background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);
+      color: #fff;
+      filter: opacity(90%);
+    }
+  }
+}
+
+/* Settings section styles */
+.settings {
+  position: absolute;
+  bottom: 0;
+  min-height: 5vh;
+  width: 100%;
+  background-color: #05000e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 2s ease;
+
+  h4 {
+    padding: 0 10px;
+  }
+
+  p,
+  ul {
+    display: none;
+    transition: all 1.5s ease;
+  }
+
+  ul li {
+    padding: 10px 10px 10px 20px;
+    width: 100%;
+
+    &:hover {
+      background-color: hsl(0, 0%, 100%, 10%);
+    }
+  }
+
+  p {
+    font-size: clamp(0.5rem, 3vw, 0.9rem);
+    padding-left: 10px;
+    filter: opacity(50%);
+  }
+
+  &:hover {
+    height: fit-content;
+
+    h4 {
+      height: fit-content;
+      margin-bottom: 10px;
+    }
+
+    p,
+    ul {
+      display: block;
+    }
+  }
+}

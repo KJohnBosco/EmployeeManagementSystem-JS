@@ -1,0 +1,33 @@
+{
+  "name": "employee-management-system",
+  "version": "1.0.0",
+  "description": "I ran into a problem of getting the output as \"undefined\" when trying to access the object members of employee (e.g. name, title)",
+  "main": "script.js",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "detect-libc": "^2.1.2",
+    "immutable": "^5.1.5",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^4.0.3",
+    "readdirp": "^4.1.2",
+    "sass": "^1.97.3",
+    "source-map-js": "^1.2.1"
+  },
+  "scripts": {
+    "sass": "sass -w ./SASS/main.scss:./CSS/main.css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KJohnBosco/EmployeeManagementSystem-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KJohnBosco/EmployeeManagementSystem-JS/issues"
+  },
+  "homepage": "https://github.com/KJohnBosco/EmployeeManagementSystem-JS#readme"
+}
