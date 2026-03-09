@@ -22,7 +22,7 @@ const employee = {
   age: "Unknown",
   salary: "Hidden",
   paymentPeriod: "Unknown",
-  dropedEmployees: 0,
+  droppedEmployees: 0,
   employeeList: [],
 
   // Add new Employee method
@@ -175,7 +175,7 @@ employee.addEmployee(
   "Marketing",
   "Male",
   25,
-  "21M",
+  "21",
   "monthly",
 );
 employee.addEmployee("Johnson Male", "Secretary", "Finance", "Male");
@@ -199,7 +199,7 @@ employee.addEmployee(
   "Finance",
   "Male",
   24,
-  "15.5M",
+  "15.5",
   "Monthly",
   "FD001RGEMP26M",
 );
@@ -209,7 +209,7 @@ employee.addEmployee(
   "Marketing",
   "Male",
   22,
-  "11.5M",
+  "11.5",
   "Monthly",
   "MD001RGEMP26M",
 );
@@ -219,9 +219,19 @@ employee.addEmployee(
   "Finance",
   "Female",
   26,
-  "25.5M",
+  "25.5",
   "Monthly",
   "FD001MCEMP26F",
+);
+employee.addEmployee(
+  "Lunkuse Jovia",
+  "Regular",
+  "Finance",
+  "Female",
+  25,
+  "5.5",
+  "Weekly",
+  "FD002RGEMP26F",
 );
 employee.showEmplyeesList();
 
@@ -245,15 +255,21 @@ employee.allEmployees();
 /////////////////////////////////////////////////////////////
 
 // HOME PANEL CODES
-// Display active employees
-document.getElementById("employeeNo").textContent =
-  employee.employeeList.length;
+// Display active employees function
+function activeEmplyeesNo() {
+  document.getElementById("employeeNo").textContent =
+    employee.employeeList.length;
+}
+activeEmplyeesNo();
 
-// Display droped employees
-document.getElementById("passedEmployeeNo").textContent =
-  employee.dropedEmployees;
+// Display droped employees function
+function droppedEmployeesNo() {
+  document.getElementById("passedEmployeeNo").textContent =
+    employee.droppedEmployees;
+}
+droppedEmployeesNo();
 
-// CHECK PROFILES PANEL CODES
+// CHECK PROFILES PANEL CODES /////////////////////////////////////////////
 function checkID(searchID) {
   switch (searchID) {
     case "checkProfilesSearchIcon":
@@ -324,9 +340,8 @@ function checkID(searchID) {
   }
 }
 
-// DISPLAY ALL EMPLOYEES' PROFILES
+// DISPLAY ALL EMPLOYEES' PROFILES /////////////////////////////////////////
 let position = 0;
-
 function changeEmployeePosition(navPosition) {
   document.getElementById("allID").textContent =
     employee.employeeList[navPosition].id;
@@ -345,10 +360,10 @@ function changeEmployeePosition(navPosition) {
   document.getElementById("allPay").textContent =
     employee.employeeList[navPosition].paymentPeriod;
 }
-
+// Invoking profile display
 changeEmployeePosition(position);
 
-// Update navigation position
+// Update navigation position listener
 document.getElementById("navLeft").addEventListener("click", () => {
   if (position > 0) {
     position--;
@@ -362,6 +377,33 @@ document.getElementById("navRight").addEventListener("click", () => {
   changeEmployeePosition(position);
 });
 
+// ADDING NEW* EMPLOYEES /////////////////////////////////////////////////
+const newEmployeeForm = document.getElementById("addEmployeeForm");
+newEmployeeForm.addEventListener("submit", (e) => {
+  // Preventing default actions
+  e.preventDefault();
+
+  // Getting form data
+  const form = new FormData(e.target);
+
+  // converting to an object
+  const newEmployee = Object.fromEntries(form.entries());
+
+  // Add employee
+  employee.addEmployee(
+    newEmployee.name,
+    newEmployee.title,
+    newEmployee.department,
+    newEmployee.gender,
+    newEmployee.age,
+    newEmployee.salary,
+    newEmployee.paymentPeriod,
+    newEmployee.id,
+  );
+
+  // update stats
+  activeEmplyeesNo();
+});
 ////////////////////////////////////////
 ///////////////////////////////
 //////////////////

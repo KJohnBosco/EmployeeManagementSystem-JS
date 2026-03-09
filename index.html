@@ -107,17 +107,17 @@
           <div class="panel" id="addEmployees">
             <fieldset>
               <legend>New</legend>
-              <form action="">
+              <form action="" id="addEmployeeForm">
                 <div class="formGroup">
-                  <input id="AEregno" required type="text" />
+                  <input id="AEregno" name="id" required type="text" />
                   <label for="AEregno">RegNo</label>
                 </div>
                 <div class="formGroup">
-                  <input id="AEname" required type="text" />
+                  <input id="AEname" name="name" required type="text" />
                   <label for="AEname">Name</label>
                 </div>
                 <div class="formGroup">
-                  <input id="AEtitle" required type="text" />
+                  <input id="AEtitle" name="title" required type="text" />
                   <label for="AEtitle">Title</label>
                 </div>
                 <div class="formGroup">
@@ -143,16 +143,16 @@
                   </select>
                 </div>
                 <div class="formGroup">
-                  <input id="AEage" required type="number" />
+                  <input id="AEage" name="age" required type="number" />
                   <label for="AEage">Age</label>
                 </div>
                 <div class="formGroup">
-                  <input id="AEsalary" required type="number" />
+                  <input id="AEsalary" name="salary" required type="number" />
                   <label for="AEsalary">Salary</label>
                 </div>
                 <div class="formGroup">
                   <label for="AEpay">Pay</label>
-                  <select id="AEpay" required name="pay" id="slctPay">
+                  <select id="AEpay" required name="paymentPeriod" id="slctPay">
                     <option value="Daily">Daily</option>
                     <option value="Weekly">Weekly</option>
                     <option value="Monthly">Monthly</option>
@@ -162,7 +162,9 @@
 
                 <div class="buttons">
                   <button type="reset" class="btn">Reset</button>
-                  <button type="submit" class="btn">Add Employee</button>
+                  <button type="submit" class="btn" onclick="addNewEmployee()">
+                    Add Employee
+                  </button>
                 </div>
               </form>
             </fieldset>
@@ -207,7 +209,7 @@
                   Employee Age: <span class="Value">-----</span>
                 </li>
                 <li id="salaryLbl">
-                  Employee Salary: <span class="Value">-----</span>
+                  Employee Salary(M): <span class="Value">-----</span>
                 </li>
                 <li id="payLbl">
                   Employee Pay: <span class="Value">-----</span>
@@ -342,7 +344,7 @@
                   Employee Age: <span id="checkAge" class="Value">-----</span>
                 </li>
                 <li>
-                  Employee Salary:
+                  Employee Salary(M):
                   <span id="checkSalary" class="Value">-----</span>
                 </li>
                 <li>
@@ -379,7 +381,7 @@
                   Employee Age: <span id="allAge" class="Value">-----</span>
                 </li>
                 <li>
-                  Employee Salary:
+                  Employee Salary(M):
                   <span id="allSalary" class="Value">-----</span>
                 </li>
                 <li>
