@@ -11,7 +11,7 @@
  */
 
 ///////////// SYSTEM CODE LOGIC /////////////////
-/*
+
 const employee = {
   // Object Variables
   id: "Unregisterd",
@@ -22,6 +22,7 @@ const employee = {
   age: "Unknown",
   salary: "Hidden",
   paymentPeriod: "Unknown",
+  dropedEmployees: 0,
   employeeList: [],
 
   // Add new Employee method
@@ -238,8 +239,93 @@ employee.editEmployeeDetails("FD001MCEMP26F", "name", "Matildah Miles");
 employee.editEmployeeDetails("FD001MCEMP26F", "title", "Assistant CEO");
 
 employee.allEmployees();
-*/
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+// HOME PANEL CODES
+// Display active employees
+document.getElementById("employeeNo").textContent =
+  employee.employeeList.length;
+
+// Display droped employees
+document.getElementById("passedEmployeeNo").textContent =
+  employee.dropedEmployees;
+
+// CHECK PROFILES PANEL CODES
+function checkID(searchID) {
+  switch (searchID) {
+    case "checkProfilesSearchIcon":
+      const employeeID = document.getElementById(
+        "checkProfilesSearchBar",
+      ).value;
+
+      // Check empty ID
+      if (employeeID === "") {
+        const comment = document.getElementById("checkProfilesComment");
+        comment.textContent = "Please enter a valid ID";
+        comment.style.color = "yellow";
+      } else {
+        const comment = document.getElementById("checkProfilesComment");
+
+        // Get .filter returned number of employee profiles
+        const listSize = employee.employeeList.filter(
+          (employee) => employee.id === employeeID,
+        ).length;
+
+        ////// Check ID availability
+        // Valid ID
+        if (listSize > 0) {
+          comment.textContent = "ID valid";
+          comment.style.color = "lime";
+
+          // Get target employee profile
+          const employeeProfile = employee.employeeList.filter(
+            (employee) => employee.id === employeeID,
+          );
+
+          // Display Employee profile
+          document.getElementById("checkID").textContent =
+            employeeProfile[0].id;
+          document.getElementById("checkName").textContent =
+            employeeProfile[0].name;
+          document.getElementById("checkTitle").textContent =
+            employeeProfile[0].title;
+          document.getElementById("checkDepartment").textContent =
+            employeeProfile[0].department;
+          document.getElementById("checkGender").textContent =
+            employeeProfile[0].gender;
+          document.getElementById("checkAge").textContent =
+            employeeProfile[0].age;
+          document.getElementById("checkSalary").textContent =
+            employeeProfile[0].salary;
+          document.getElementById("checkPay").textContent =
+            employeeProfile[0].paymentPeriod;
+
+          console.log(employeeProfile[0]);
+
+          // Invalid ID
+        } else if (listSize === 0) {
+          comment.textContent = "ID Doesn't Exist";
+          comment.style.color = "yellow";
+
+          // Defaults
+        } else {
+          // Defaults
+        }
+      }
+      break;
+    case "removeEmployeesSearchIcon":
+      break;
+    case "editProfilesSearchIcon":
+      break;
+  }
+}
+
+////////////////////////////////////////
+///////////////////////////////
+//////////////////
 // IMPLEMENTATIONS
 // Get Started Button function
 function hideSplash() {

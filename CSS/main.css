@@ -161,6 +161,7 @@
   font-weight: bold;
   padding: 2vh 35px;
   cursor: pointer;
+  border-bottom: 1px solid rgba(5, 0, 14, 0.062745098);
 }
 #navigationsPanel > ul li:hover {
   background-image: linear-gradient(to right, #ff4501, #ff4501, #fff);

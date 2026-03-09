@@ -174,9 +174,14 @@
                   type="search"
                   placeholder="enter employee ID"
                 />
-                <span class="icon">&#128269;</span>
+                <span
+                  id="removeEmployeesSearchIcon"
+                  class="icon"
+                  onclick="checkID('removeEmployeesSearchIcon')"
+                  >&#128269;</span
+                >
               </div>
-              <p>Search by ID</p>
+              <p id="removeEmployeesComment">Search by ID</p>
             </div>
             <div class="contents">
               <ul>
@@ -218,9 +223,14 @@
                   type="search"
                   placeholder="enter employee ID"
                 />
-                <span class="icon">&#128269;</span>
+                <span
+                  id="editProfilesSearchIcon"
+                  class="icon"
+                  onclick="checkID('editProfilesSearchIcon')"
+                  >&#128269;</span
+                >
               </div>
-              <p>Search by ID</p>
+              <p id="editProfilesComment">Search by ID</p>
             </div>
             <div class="contents">
               <fieldset>
@@ -293,35 +303,44 @@
                   type="search"
                   placeholder="enter employee ID"
                 />
-                <span class="icon">&#128269;</span>
+                <span
+                  id="checkProfilesSearchIcon"
+                  class="icon"
+                  onclick="checkID('checkProfilesSearchIcon')"
+                  >&#128269;</span
+                >
               </div>
-              <p>Search by ID</p>
+              <p id="checkProfilesComment">Search by ID</p>
             </div>
             <div class="contents">
               <ul>
-                <li id="IDLbl">
-                  Employee ID: <span class="Value">-----</span>
+                <li>
+                  Employee ID: <span id="checkID" class="Value">-----</span>
                 </li>
-                <li id="nameLbl">
-                  Employee Name: <span class="Value">-----</span>
+                <li>
+                  Employee Name: <span id="checkName" class="Value">-----</span>
                 </li>
-                <li id="titleLbl">
-                  Employee Title: <span class="Value">-----</span>
+                <li>
+                  Employee Title:
+                  <span id="checkTitle" class="Value">-----</span>
                 </li>
-                <li id="departmentLbl">
-                  Employee Department: <span class="Value">-----</span>
+                <li>
+                  Employee Department:
+                  <span id="checkDepartment" class="Value">-----</span>
                 </li>
-                <li id="genderLbl">
-                  Employee Gender: <span class="Value">-----</span>
+                <li>
+                  Employee Gender:
+                  <span id="checkGender" class="Value">-----</span>
                 </li>
-                <li id="ageLbl">
-                  Employee Age: <span class="Value">-----</span>
+                <li>
+                  Employee Age: <span id="checkAge" class="Value">-----</span>
                 </li>
-                <li id="salaryLbl">
-                  Employee Salary: <span class="Value">-----</span>
+                <li>
+                  Employee Salary:
+                  <span id="checkSalary" class="Value">-----</span>
                 </li>
-                <li id="payLbl">
-                  Employee Pay: <span class="Value">-----</span>
+                <li>
+                  Employee Pay: <span id="checkPay" class="Value">-----</span>
                 </li>
               </ul>
             </div>
