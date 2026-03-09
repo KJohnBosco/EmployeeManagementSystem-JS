@@ -6,7 +6,7 @@
     color: #ffffff;
     text-align: center;
     padding: 15px;
-    font-size: clamp(1rem, 3vw, 2.2rem);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
     text-shadow: 5px 5px 5px #000;
   }
 
@@ -129,5 +129,17 @@
   & > h2 {
     color: #ffffff;
     font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+}
+
+@media (max-width: 650px) {
+  #home {
+    .stats {
+      flex-direction: column;
+
+      & > div {
+        width: 100%;
+      }
+    }
   }
 }

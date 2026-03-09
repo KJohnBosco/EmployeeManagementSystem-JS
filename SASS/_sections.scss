@@ -38,6 +38,35 @@
   position: absolute;
   width: 100%;
   z-index: 5;
+
+  .menu {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: #00009b;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+
+    div {
+      width: 100%;
+      height: 3px;
+      background-color: #ffffff;
+      transition: all 1s ease;
+    }
+
+    &:hover {
+      div {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
 // Search Section
@@ -80,5 +109,13 @@
     margin-top: 10px;
     font-weight: bold;
     color: #ffffff90;
+  }
+}
+
+@media (max-width: 650px) {
+  .headerSection {
+    .menu {
+      display: flex;
+    }
   }
 }

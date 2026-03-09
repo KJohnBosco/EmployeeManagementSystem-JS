@@ -16,7 +16,8 @@
   </head>
   <body>
     <!-- Splash Screen -->
-    <section class="splashScreen">
+    <section id="splashScreen">
+      <img src="./IMG/logo.png" alt="logo" />
       <h1>EMPLOYEE MANAGEMENT SYSTEM</h1>
       <ul>
         <li>Add Employees</li>
@@ -25,14 +26,14 @@
         <li>Edit Employees Details</li>
         <li>Show All Employees Details</li>
       </ul>
-      <button class="getStarted">Get Started &rarr;</button>
+      <button onclick="hideSplash()">Get Started &rarr;</button>
     </section>
     <main>
       <!-- Navigations Panel -->
       <aside id="navigationsPanel">
         <!-- logo area -->
         <div class="logo">
-          <img src="" alt="logo" />
+          <img src="./IMG/logo.png" alt="logo" />
         </div>
         <!-- Navigations Area -->
         <ul>
@@ -74,6 +75,11 @@
       <!-- Main Section -->
       <section id="mainSection">
         <div class="headerSection">
+          <div class="menu" onclick="menu()">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
           <h2 id="sectionTitle">Employee Management System</h2>
           <p id="sectionDescription">
             Manage all your staff in a centralized place

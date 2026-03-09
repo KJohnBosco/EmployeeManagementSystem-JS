@@ -6,7 +6,7 @@
   color: #ffffff;
   text-align: center;
   padding: 15px;
-  font-size: clamp(1rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
   text-shadow: 5px 5px 5px #000;
 }
 #home .stats {
@@ -127,6 +127,14 @@
   font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
+@media (max-width: 650px) {
+  #home .stats {
+    flex-direction: column;
+  }
+  #home .stats > div {
+    width: 100%;
+  }
+}
 /* Navigation Panel Styles */
 #navigationsPanel {
   background-color: #fff;
@@ -138,9 +146,13 @@
   width: 100%;
   height: auto;
   min-height: 150px;
+  padding: 10px;
   background-color: #05000e;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
+}
+#navigationsPanel .logo img {
+  max-width: 200px;
 }
 #navigationsPanel > ul {
   padding: 25px 0;
@@ -212,17 +224,27 @@
   display: block;
 }
 
+@media (max-width: 650px) {
+  #navigationsPanel {
+    width: 0vw;
+    transition: all 1s ease;
+  }
+}
 /* Splah Screen Styels */
-.splashScreen {
-  display: none;
+#splashScreen {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   color: #f4f4f4;
   gap: 10px;
+  transition: all 1.5s ease;
 }
-.splashScreen h1 {
+#splashScreen img {
+  width: 50%;
+}
+#splashScreen h1 {
   font-size: clamp(1rem, 6vw, 3.5rem);
   font-weight: 900;
   text-align: center;
@@ -230,18 +252,18 @@
   background-clip: text;
   color: transparent;
 }
-.splashScreen ul {
+#splashScreen ul {
   display: flex;
   justify-content: space-around;
   gap: 5px;
 }
-.splashScreen ul li {
+#splashScreen ul li {
   background-color: hsla(0, 0%, 96%, 0.1);
   border-radius: 10px;
   text-align: center;
   padding: 3px 8px;
 }
-.splashScreen > button {
+#splashScreen > button {
   margin-top: 10px;
   padding: 10px 35px;
   border-radius: 10px;
@@ -249,7 +271,7 @@
   cursor: pointer;
   filter: brightness(80%);
 }
-.splashScreen > button:hover {
+#splashScreen > button:hover {
   filter: brightness(100%);
 }
 
@@ -299,6 +321,30 @@ main {
   width: 100%;
   z-index: 5;
 }
+.headerSection .menu {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 40px;
+  height: 40px;
+  background-color: #00009b;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.headerSection .menu div {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  transition: all 1s ease;
+}
+.headerSection .menu:hover div {
+  transform: rotate(180deg);
+}
 
 .searchSection {
   padding: 25px 30px;
@@ -336,6 +382,11 @@ main {
   color: rgba(255, 255, 255, 0.5647058824);
 }
 
+@media (max-width: 650px) {
+  .headerSection .menu {
+    display: flex;
+  }
+}
 fieldset {
   padding: 25px;
   border-radius: 10px;
@@ -417,6 +468,10 @@ fieldset:hover .btn:hover, fieldset:focus .btn:hover {
 body {
   background-color: #05000e;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 * {

@@ -9,9 +9,14 @@
     width: 100%;
     height: auto;
     min-height: 150px;
+    padding: 10px;
     background-color: #05000e;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
+
+    img {
+      max-width: 200px;
+    }
   }
 
   & > ul {
@@ -94,5 +99,12 @@
     ul {
       display: block;
     }
+  }
+}
+
+@media (max-width: 650px) {
+  #navigationsPanel {
+    width: 0vw;
+    transition: all 1s ease;
   }
 }

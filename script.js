@@ -1,3 +1,4 @@
+"use strict";
 // EMPLOYEE MANAGEMENT SYSTEM PROJECT (JAVASCRIPT)
 /*
  ***Features
@@ -240,6 +241,23 @@ employee.allEmployees();
 */
 
 // IMPLEMENTATIONS
+// Get Started Button function
+function hideSplash() {
+  document.getElementById("splashScreen").style.height = "0vh";
+}
+
+// Show Mobile Side Menu
+function menu() {
+  const sideMenu = document.getElementById("navigationsPanel");
+  console.log(sideMenu.style.width);
+
+  if (sideMenu.style.width === "") {
+    sideMenu.style.width = "fit-content";
+  } else {
+    sideMenu.style.width = "";
+  }
+}
+
 // hide all panels function
 function deactivatePanels() {
   // Retrieve all elements with "panel" class

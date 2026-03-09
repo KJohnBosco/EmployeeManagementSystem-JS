@@ -1,12 +1,17 @@
 /* Splah Screen Styels */
-.splashScreen {
-  display: none;
+#splashScreen {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   color: #f4f4f4;
   gap: 10px;
+  transition: all 1.5s ease;
+
+  img {
+    width: 50%;
+  }
 
   & h1 {
     font-size: clamp(1rem, 6vw, 3.5rem);
