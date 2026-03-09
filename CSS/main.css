@@ -1,31 +1,130 @@
 /* Home Panel */
 #home {
-  background-color: blue;
+  background-color: transparent;
+}
+#home h2 {
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+  font-size: clamp(1rem, 3vw, 2.2rem);
+  text-shadow: 5px 5px 5px #000;
+}
+#home .stats {
+  display: flex;
+  gap: 15px;
+}
+#home .stats > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 5px 5px 5px #05000e;
+}
+#home .stats > div p:first-child {
+  font-size: 2rem;
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+#home .stats > div p:nth-child(2) {
+  font-weight: bold;
+}
+#home .stats > div p:nth-child(2):has(#employeeNo) {
+  color: lime;
+}
+#home .stats > div p:nth-child(2):has(#passedEmployeeNo) {
+  color: orangered;
+}
+#home .stats > div p:nth-child(2) span {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+#home .stats > div p:last-child {
+  font-weight: bold;
+  color: rgba(5, 0, 14, 0.5647058824);
 }
 
 /* Add Employees Panel */
 #addEmployees {
-  background-color: orange;
+  background-color: transparent;
 }
 
-/* Remove Employees Panel */
+/* Remove Employees Panel || Check Details || All Employees */
+#allProfiles,
+#checkProfiles,
 #removeEmployees {
-  background-color: #00ff55;
+  background-color: transparent;
+}
+#allProfiles .contents,
+#checkProfiles .contents,
+#removeEmployees .contents {
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#allProfiles .contents ul,
+#checkProfiles .contents ul,
+#removeEmployees .contents ul {
+  background-color: rgba(0, 0, 255, 0.5647058824);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 5px 5px 5px #000;
+  width: 100%;
+}
+#allProfiles .contents ul li,
+#checkProfiles .contents ul li,
+#removeEmployees .contents ul li {
+  padding: 10px;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+}
+#allProfiles .contents ul li .Value,
+#checkProfiles .contents ul li .Value,
+#removeEmployees .contents ul li .Value {
+  position: absolute;
+  right: 0;
+}
+#allProfiles .contents .btn,
+#checkProfiles .contents .btn,
+#removeEmployees .contents .btn {
+  position: absolute;
+  bottom: 35px;
+  padding: 2px 15px;
+  color: #ffffff;
+  border: 2px solid #fff;
+  font-weight: bold;
+}
+#allProfiles .contents .btn:hover,
+#checkProfiles .contents .btn:hover,
+#removeEmployees .contents .btn:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 /* Edit Profiles Panel */
 #editProfiles {
-  background-color: red;
+  background-color: transparent;
 }
 
 /* Check Profiles Panel */
 #checkProfiles {
-  background-color: gray;
+  background-color: transparent;
 }
 
 /* All Profiles Panel */
 #allProfiles {
-  background-color: purple;
+  background-color: transparent;
+}
+#allProfiles > h2 {
+  color: #ffffff;
+  font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 /* Navigation Panel Styles */
@@ -175,6 +274,11 @@ main {
 #mainSection .panels {
   width: 100%;
   height: 100%;
+  background: url("../IMG/bg (1).jpg") center center/cover;
+  overflow-y: scroll;
+}
+#mainSection .panels::-webkit-scrollbar {
+  display: none;
 }
 #mainSection .panels > div {
   padding: 85px 25px 25px;
@@ -189,10 +293,125 @@ main {
 .headerSection {
   text-align: center;
   padding: 10px;
-  background-color: #f4f4f4;
-  color: #05000e;
+  background-image: linear-gradient(to bottom right, #00009b, #0000ff, #020296);
+  color: #f4f4f4;
   position: absolute;
   width: 100%;
+  z-index: 5;
+}
+
+.searchSection {
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchSection > div input {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(5, 0, 14, 0.5647058824);
+  background-color: #ffffff;
+}
+.searchSection > div .icon {
+  margin: 2px;
+  min-width: 35px;
+  min-height: 35px;
+  border: 2px solid #ffffff;
+  padding: 3px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 1.3rem;
+  cursor: pointer;
+  filter: brightness(80%);
+  transition: all 1s ease;
+  z-index: 1;
+}
+.searchSection > div .icon:hover {
+  filter: brightness(100%);
+}
+.searchSection p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5647058824);
+}
+
+fieldset {
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid #05000e;
+  width: 70%;
+  margin: auto auto;
+  transition: all 1s ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4392156863);
+  filter: opacity(50%);
+}
+fieldset legend {
+  font-weight: bold;
+  padding: 3px 15px;
+  border: 2px solid #05000e;
+  border-radius: 20px;
+  transition: all 1s ease;
+}
+fieldset form .formGroup {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+fieldset form .formGroup label {
+  position: absolute;
+  padding: 2px 10px;
+  pointer-events: none;
+  transition: all 1s ease;
+}
+fieldset form .formGroup label::after {
+  content: "*";
+  color: #ff0000;
+}
+fieldset form .formGroup label:has(+ select) {
+  position: static;
+  color: white;
+}
+fieldset form .formGroup input {
+  font-size: clamp(0.8rem, 3vw, 1.1rem);
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(5, 0, 14, 0.2509803922);
+  min-width: 100%;
+}
+fieldset form .formGroup input:valid + label, fieldset form .formGroup input:focus + label {
+  color: white;
+  transform: translateY(-26px);
+  font-size: clamp(0.5rem, 3vw, 0.9rem);
+}
+fieldset form .formGroup select {
+  min-width: 200px;
+  font-size: clamp(0.8rem, 3vw, 1.05rem);
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+fieldset form .btn {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4392156863);
+}
+fieldset:hover, fieldset:focus {
+  border-color: white;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1882352941);
+  filter: opacity(100%);
+}
+fieldset:hover legend, fieldset:focus legend {
+  border-color: white;
+  color: white;
+}
+fieldset:hover .btn, fieldset:focus .btn {
+  color: #fff;
+  border-color: #fff;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3137254902), rgba(255, 255, 255, 0.1882352941), rgba(255, 255, 255, 0.062745098));
+  transition: all 0.5s ease;
+}
+fieldset:hover .btn:hover, fieldset:focus .btn:hover {
+  filter: brightness(90%);
 }
 
 body {
@@ -209,4 +428,15 @@ body {
 
 ul {
   list-style: none;
+}
+
+.btn {
+  padding: 10px 25px;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  border: 2px solid rgba(5, 0, 14, 0.1254901961);
+  background-color: transparent;
+  border-radius: 10px;
+  display: block;
+  margin: auto auto;
+  cursor: pointer;
 }

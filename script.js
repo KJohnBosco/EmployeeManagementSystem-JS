@@ -333,7 +333,7 @@ function showPanel(buttonID) {
 
     // SHOW ALL EMPLOYEES PANEL
     case "showAllEmpNav":
-      panel = document.getElementById("showAllEmpNav");
+      panel = document.getElementById("allProfiles");
       deactivatePanels();
       panel.classList.add("activePanel");
       document.getElementById(buttonID).classList.add("current");

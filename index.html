@@ -81,47 +81,278 @@
         </div>
         <div class="panels">
           <div class="panel activePanel" id="home">
-            <h2>Home Panel</h2>
+            <h2>Current Stats</h2>
+
+            <div class="stats">
+              <div>
+                <p>&#128101;</p>
+                <p><span id="employeeNo">000</span></p>
+                <p>Active Employee</p>
+              </div>
+              <div>
+                <p>&#128101;</p>
+                <p><span id="passedEmployeeNo">000</span></p>
+                <p>Droped Employee</p>
+              </div>
+            </div>
           </div>
+
+          <!-- ADD EMPLOYEE SECTION -->
           <div class="panel" id="addEmployees">
             <fieldset>
-              <legend>New*</legend>
+              <legend>New</legend>
               <form action="">
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <input id="AEregno" required type="text" />
+                  <label for="AEregno">RegNo</label>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <input id="AEname" required type="text" />
+                  <label for="AEname">Name</label>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <input id="AEtitle" required type="text" />
+                  <label for="AEtitle">Title</label>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <label for="AEdepartment">department</label>
+                  <select
+                    id="AEdepartment"
+                    required
+                    name="department"
+                    id="slctDep"
+                  >
+                    <option value="Finance">Finance</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Research">Research</option>
+                    <option value="Technology">Technology</option>
+                  </select>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <label for="AEgender">Gender</label>
+                  <select id="AEgender" required name="gender" id="slctGdr">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <input id="AEage" required type="number" />
+                  <label for="AEage">Age</label>
                 </div>
                 <div class="formGroup">
-                  <label for="">Name</label>
-                  <input type="text" />
+                  <input id="AEsalary" required type="number" />
+                  <label for="AEsalary">Salary</label>
                 </div>
+                <div class="formGroup">
+                  <label for="AEpay">Pay</label>
+                  <select id="AEpay" required name="pay" id="slctPay">
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn">Add Employee</button>
               </form>
             </fieldset>
           </div>
-          <div class="panel" id="removeEmployees"></div>
-          <div class="panel" id="editProfiles"></div>
-          <div class="panel" id="checkProfiles"></div>
-          <div class="panel" id="allProfiles"></div>
+
+          <!-- REMOVE EMPLOYEE -->
+          <div class="panel" id="removeEmployees">
+            <div class="searchSection">
+              <div>
+                <input
+                  id="removeEmployeesSearchBar"
+                  type="search"
+                  placeholder="enter employee ID"
+                />
+                <span class="icon">&#128269;</span>
+              </div>
+              <p>Search by ID</p>
+            </div>
+            <div class="contents">
+              <ul>
+                <li id="IDLbl">
+                  Employee ID: <span class="Value">-----</span>
+                </li>
+                <li id="nameLbl">
+                  Employee Name: <span class="Value">-----</span>
+                </li>
+                <li id="titleLbl">
+                  Employee Title: <span class="Value">-----</span>
+                </li>
+                <li id="departmentLbl">
+                  Employee Department: <span class="Value">-----</span>
+                </li>
+                <li id="genderLbl">
+                  Employee Gender: <span class="Value">-----</span>
+                </li>
+                <li id="ageLbl">
+                  Employee Age: <span class="Value">-----</span>
+                </li>
+                <li id="salaryLbl">
+                  Employee Salary: <span class="Value">-----</span>
+                </li>
+                <li id="payLbl">
+                  Employee Pay: <span class="Value">-----</span>
+                </li>
+              </ul>
+              <button class="btn">Delete &#128465;</button>
+            </div>
+          </div>
+
+          <!-- EDIT EMPLOYEE PROFILE -->
+          <div class="panel" id="editProfiles">
+            <div class="searchSection">
+              <div>
+                <input
+                  id="editProfilesSearchBar"
+                  type="search"
+                  placeholder="enter employee ID"
+                />
+                <span class="icon">&#128269;</span>
+              </div>
+              <p>Search by ID</p>
+            </div>
+            <div class="contents">
+              <fieldset>
+                <legend>New</legend>
+                <form action="">
+                  <div class="formGroup">
+                    <input id="EEregno" required type="text" />
+                    <label for="EEregno">RegNo</label>
+                  </div>
+                  <div class="formGroup">
+                    <input id="EEname" required type="text" />
+                    <label for="EEname">Name</label>
+                  </div>
+                  <div class="formGroup">
+                    <input id="EEtitle" required type="text" />
+                    <label for="EEtitle">Title</label>
+                  </div>
+                  <div class="formGroup">
+                    <label for="EEdepartment">department</label>
+                    <select
+                      id="EEdepartment"
+                      required
+                      name="department"
+                      id="slctDep"
+                    >
+                      <option value="Finance">Finance</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Sales">Sales</option>
+                      <option value="Research">Research</option>
+                      <option value="Technology">Technology</option>
+                    </select>
+                  </div>
+                  <div class="formGroup">
+                    <label for="EEgender">Gender</label>
+                    <select id="EEgender" required name="gender" id="slctGdr">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+                  <div class="formGroup">
+                    <input id="EEage" required type="number" />
+                    <label for="EEage">Age</label>
+                  </div>
+                  <div class="formGroup">
+                    <input id="EEsalary" required type="number" />
+                    <label for="EEsalary">Salary</label>
+                  </div>
+                  <div class="formGroup">
+                    <label for="EEpay">Pay</label>
+                    <select id="EEpay" required name="pay" id="slctPay">
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                      <option value="Monthly">Monthly</option>
+                      <option value="Yearly">Yearly</option>
+                    </select>
+                  </div>
+
+                  <button type="submit" class="btn">Add Employee</button>
+                </form>
+              </fieldset>
+            </div>
+          </div>
+
+          <!-- CHECK EMPLOYEE PROFILE -->
+          <div class="panel" id="checkProfiles">
+            <div class="searchSection">
+              <div>
+                <input
+                  id="checkProfilesSearchBar"
+                  type="search"
+                  placeholder="enter employee ID"
+                />
+                <span class="icon">&#128269;</span>
+              </div>
+              <p>Search by ID</p>
+            </div>
+            <div class="contents">
+              <ul>
+                <li id="IDLbl">
+                  Employee ID: <span class="Value">-----</span>
+                </li>
+                <li id="nameLbl">
+                  Employee Name: <span class="Value">-----</span>
+                </li>
+                <li id="titleLbl">
+                  Employee Title: <span class="Value">-----</span>
+                </li>
+                <li id="departmentLbl">
+                  Employee Department: <span class="Value">-----</span>
+                </li>
+                <li id="genderLbl">
+                  Employee Gender: <span class="Value">-----</span>
+                </li>
+                <li id="ageLbl">
+                  Employee Age: <span class="Value">-----</span>
+                </li>
+                <li id="salaryLbl">
+                  Employee Salary: <span class="Value">-----</span>
+                </li>
+                <li id="payLbl">
+                  Employee Pay: <span class="Value">-----</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SHOW ALL EMPLOYEE PROFILES -->
+          <div class="panel" id="allProfiles">
+            <h2>All Registered Employees</h2>
+            <div class="contents">
+              <ul>
+                <li id="IDLbl">
+                  Employee ID: <span class="Value">-----</span>
+                </li>
+                <li id="nameLbl">
+                  Employee Name: <span class="Value">-----</span>
+                </li>
+                <li id="titleLbl">
+                  Employee Title: <span class="Value">-----</span>
+                </li>
+                <li id="departmentLbl">
+                  Employee Department: <span class="Value">-----</span>
+                </li>
+                <li id="genderLbl">
+                  Employee Gender: <span class="Value">-----</span>
+                </li>
+                <li id="ageLbl">
+                  Employee Age: <span class="Value">-----</span>
+                </li>
+                <li id="salaryLbl">
+                  Employee Salary: <span class="Value">-----</span>
+                </li>
+                <li id="payLbl">
+                  Employee Pay: <span class="Value">-----</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </main>

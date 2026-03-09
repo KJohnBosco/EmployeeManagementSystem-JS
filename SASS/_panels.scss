@@ -1,29 +1,133 @@
 /* Home Panel */
 #home {
-  background-color: #00ff;
+  background-color: transparent;
+
+  h2 {
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    font-size: clamp(1rem, 3vw, 2.2rem);
+    text-shadow: 5px 5px 5px #000;
+  }
+
+  .stats {
+    display: flex;
+    gap: 15px;
+
+    & > div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 5px 5px 5px #05000e;
+
+      p {
+        &:first-child {
+          font-size: 2rem;
+          padding: 15px;
+          background-color: #f4f4f4;
+          border-radius: 50%;
+          margin-bottom: 5px;
+        }
+
+        &:nth-child(2) {
+          font-weight: bold;
+
+          &:has(#employeeNo) {
+            color: lime;
+          }
+
+          &:has(#passedEmployeeNo) {
+            color: orangered;
+          }
+
+          span {
+            font-size: clamp(1rem, 3vw, 2rem);
+          }
+        }
+
+        &:last-child {
+          font-weight: bold;
+          color: #05000e90;
+        }
+      }
+    }
+  }
 }
 
 /* Add Employees Panel */
 #addEmployees {
-  background-color: orange;
+  background-color: transparent;
 }
 
-/* Remove Employees Panel */
+/* Remove Employees Panel || Check Details || All Employees */
+#allProfiles,
+#checkProfiles,
 #removeEmployees {
-  background-color: #00ff55;
+  background-color: transparent;
+
+  .contents {
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+      background-color: #0000ff90;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 5px 5px 5px #000;
+      width: 100%;
+
+      li {
+        padding: 10px;
+        font-weight: bold;
+        color: #ffffff;
+        position: relative;
+
+        .Value {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 35px;
+      padding: 2px 15px;
+      color: #ffffff;
+      border: 2px solid #fff;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
 }
 
 /* Edit Profiles Panel */
 #editProfiles {
-  background-color: red;
+  background-color: transparent;
 }
 
 /* Check Profiles Panel */
 #checkProfiles {
-  background-color: gray;
+  background-color: transparent;
 }
 
 /* All Profiles Panel */
 #allProfiles {
-  background-color: purple;
+  background-color: transparent;
+  & > h2 {
+    color: #ffffff;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
 }
