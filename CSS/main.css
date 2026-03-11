@@ -37,7 +37,7 @@
 #home .stats > div p:nth-child(2):has(#employeeNo) {
   color: lime;
 }
-#home .stats > div p:nth-child(2):has(#passedEmployeeNo) {
+#home .stats > div p:nth-child(2):has(#droppedEmployeesNo) {
   color: orangered;
 }
 #home .stats > div p:nth-child(2) span {

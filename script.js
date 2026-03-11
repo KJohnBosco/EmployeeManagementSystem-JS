@@ -23,6 +23,7 @@ const employee = {
   salary: "Hidden",
   paymentPeriod: "Unknown",
   droppedEmployees: 0,
+  trashID: false,
   employeeList: [],
 
   // Add new Employee method
@@ -253,7 +254,93 @@ employee.allEmployees();
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
+// GLOBAL FUNCTIONS
 
+// CHECK ID VALIDITY
+const checkID = function (searchBarId, commentId) {
+  const employeeID = document.getElementById(searchBarId).value;
+  const comment = document.getElementById(commentId);
+
+  // Get .filter returned number of employee profiles
+  const listSize = employee.employeeList.filter(
+    (employee) => employee.id === employeeID,
+  ).length;
+
+  // Check empty ID
+  if (employeeID === "") {
+    // Empty Input
+    comment.textContent = "Please enter a valid ID";
+    comment.style.color = "yellow";
+  } else if (listSize === 0) {
+    // ID Doesn't Exist
+    comment.textContent = "ID Doesn't Exist";
+    comment.style.color = "yellow";
+  } else if (listSize > 0) {
+    //ID Exists
+    comment.textContent = "ID valid";
+    comment.style.color = "lime";
+
+    // Switch to call functions
+    switch (searchBarId) {
+      case "checkProfilesSearchBar":
+        searchProfiles(employeeID, "check");
+        break;
+      case "removeEmployeesSearchBar":
+        searchProfiles(employeeID, "remove");
+    }
+  } else {
+    // Defaults
+    console.error("Error: All conditions not meet");
+  }
+};
+
+// SEARCH PROFILES
+const searchProfiles = function (employeeID, prefix) {
+  // Get target employee profile
+  const employeeProfile = employee.employeeList.filter(
+    (employee) => employee.id === employeeID,
+  );
+
+  // Display Employee profile
+  document.getElementById(`${prefix}ID`).textContent = employeeProfile[0].id;
+  document.getElementById(`${prefix}Name`).textContent =
+    employeeProfile[0].name;
+  document.getElementById(`${prefix}Title`).textContent =
+    employeeProfile[0].title;
+  document.getElementById(`${prefix}Department`).textContent =
+    employeeProfile[0].department;
+  document.getElementById(`${prefix}Gender`).textContent =
+    employeeProfile[0].gender;
+  document.getElementById(`${prefix}Age`).textContent = employeeProfile[0].age;
+  document.getElementById(`${prefix}Salary`).textContent =
+    employeeProfile[0].salary;
+  document.getElementById(`${prefix}Pay`).textContent =
+    employeeProfile[0].paymentPeriod;
+
+  console.log(employeeProfile[0]);
+};
+
+// REMOVE PROFILES
+const removeProfile = function () {
+  // Delete by filter
+  employee.removeEmployeeID(
+    document.getElementById("removeEmployeesSearchBar").value,
+  );
+
+  // Update dropped employees No & active employees No
+  employee.droppedEmployees++;
+
+  activeEmplyeesNo();
+  droppedEmployeesNo();
+  alert("Employee deleted successfully");
+};
+
+document
+  .getElementById("deleteEmployeeButton")
+  .addEventListener("click", removeProfile);
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
 // HOME PANEL CODES
 // Display active employees function
 function activeEmplyeesNo() {
@@ -261,84 +348,84 @@ function activeEmplyeesNo() {
     employee.employeeList.length;
 }
 activeEmplyeesNo();
-
-// Display droped employees function
+// Display dropped employees function
 function droppedEmployeesNo() {
-  document.getElementById("passedEmployeeNo").textContent =
+  document.getElementById("droppedEmployeesNo").textContent =
     employee.droppedEmployees;
 }
+activeEmplyeesNo();
 droppedEmployeesNo();
 
 // CHECK PROFILES PANEL CODES /////////////////////////////////////////////
-function checkID(searchID) {
-  switch (searchID) {
-    case "checkProfilesSearchIcon":
-      const employeeID = document.getElementById(
-        "checkProfilesSearchBar",
-      ).value;
+// function checkID(searchID) {
+//   switch (searchID) {
+//     case "checkProfilesSearchIcon":
+//       const employeeID = document.getElementById(
+//         "checkProfilesSearchBar",
+//       ).value;
 
-      // Check empty ID
-      if (employeeID === "") {
-        const comment = document.getElementById("checkProfilesComment");
-        comment.textContent = "Please enter a valid ID";
-        comment.style.color = "yellow";
-      } else {
-        const comment = document.getElementById("checkProfilesComment");
+//       // Check empty ID
+//       if (employeeID === "") {
+//         const comment = document.getElementById("checkProfilesComment");
+//         comment.textContent = "Please enter a valid ID";
+//         comment.style.color = "yellow";
+//       } else {
+//         const comment = document.getElementById("checkProfilesComment");
 
-        // Get .filter returned number of employee profiles
-        const listSize = employee.employeeList.filter(
-          (employee) => employee.id === employeeID,
-        ).length;
+//         // Get .filter returned number of employee profiles
+//         const listSize = employee.employeeList.filter(
+//           (employee) => employee.id === employeeID,
+//         ).length;
 
-        ////// Check ID availability
-        // Valid ID
-        if (listSize > 0) {
-          comment.textContent = "ID valid";
-          comment.style.color = "lime";
+//         ////// Check ID availability
+//         // Valid ID
+//         if (listSize > 0) {
+//           comment.textContent = "ID valid";
+//           comment.style.color = "lime";
 
-          // Get target employee profile
-          const employeeProfile = employee.employeeList.filter(
-            (employee) => employee.id === employeeID,
-          );
+//           // Get target employee profile
+//           const employeeProfile = employee.employeeList.filter(
+//             (employee) => employee.id === employeeID,
+//           );
 
-          // Display Employee profile
-          document.getElementById("checkID").textContent =
-            employeeProfile[0].id;
-          document.getElementById("checkName").textContent =
-            employeeProfile[0].name;
-          document.getElementById("checkTitle").textContent =
-            employeeProfile[0].title;
-          document.getElementById("checkDepartment").textContent =
-            employeeProfile[0].department;
-          document.getElementById("checkGender").textContent =
-            employeeProfile[0].gender;
-          document.getElementById("checkAge").textContent =
-            employeeProfile[0].age;
-          document.getElementById("checkSalary").textContent =
-            employeeProfile[0].salary;
-          document.getElementById("checkPay").textContent =
-            employeeProfile[0].paymentPeriod;
+//           // Display Employee profile
+//           document.getElementById("checkID").textContent =
+//             employeeProfile[0].id;
+//           document.getElementById("checkName").textContent =
+//             employeeProfile[0].name;
+//           document.getElementById("checkTitle").textContent =
+//             employeeProfile[0].title;
+//           document.getElementById("checkDepartment").textContent =
+//             employeeProfile[0].department;
+//           document.getElementById("checkGender").textContent =
+//             employeeProfile[0].gender;
+//           document.getElementById("checkAge").textContent =
+//             employeeProfile[0].age;
+//           document.getElementById("checkSalary").textContent =
+//             employeeProfile[0].salary;
+//           document.getElementById("checkPay").textContent =
+//             employeeProfile[0].paymentPeriod;
 
-          console.log(employeeProfile[0]);
+//           console.log(employeeProfile[0]);
 
-          // Invalid ID
-        } else if (listSize === 0) {
-          comment.textContent = "ID Doesn't Exist";
-          comment.style.color = "yellow";
+//           // Invalid ID
+//         } else if (listSize === 0) {
+//           comment.textContent = "ID Doesn't Exist";
+//           comment.style.color = "yellow";
 
-          // Defaults
-        } else {
-          // Defaults
-          console.error("Error: All conditions not meet");
-        }
-      }
-      break;
-    case "removeEmployeesSearchIcon":
-      break;
-    case "editProfilesSearchIcon":
-      break;
-  }
-}
+//           // Defaults
+//         } else {
+//           // Defaults
+//           console.error("Error: All conditions not meet");
+//         }
+//       }
+//       break;
+//     case "removeEmployeesSearchIcon":
+//       break;
+//     case "editProfilesSearchIcon":
+//       break;
+//   }
+// }
 
 // DISPLAY ALL EMPLOYEES' PROFILES /////////////////////////////////////////
 let position = 0;
@@ -403,6 +490,7 @@ newEmployeeForm.addEventListener("submit", (e) => {
 
   // update stats
   activeEmplyeesNo();
+  alert("User Added Successfully");
 });
 ////////////////////////////////////////
 ///////////////////////////////

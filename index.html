@@ -97,7 +97,7 @@
               </div>
               <div>
                 <p>&#128101;</p>
-                <p><span id="passedEmployeeNo">000</span></p>
+                <p><span id="droppedEmployeesNo">000</span></p>
                 <p>Droped Employee</p>
               </div>
             </div>
@@ -182,7 +182,12 @@
                 <span
                   id="removeEmployeesSearchIcon"
                   class="icon"
-                  onclick="checkID('removeEmployeesSearchIcon')"
+                  onclick="
+                    checkID(
+                      'removeEmployeesSearchBar',
+                      'removeEmployeesComment',
+                    )
+                  "
                   >&#128269;</span
                 >
               </div>
@@ -190,32 +195,39 @@
             </div>
             <div class="contents">
               <ul>
-                <li id="IDLbl">
-                  Employee ID: <span class="Value">-----</span>
+                <li>
+                  Employee ID: <span id="removeID" class="Value">-----</span>
                 </li>
-                <li id="nameLbl">
-                  Employee Name: <span class="Value">-----</span>
+                <li>
+                  Employee Name:
+                  <span id="removeName" class="Value">-----</span>
                 </li>
-                <li id="titleLbl">
-                  Employee Title: <span class="Value">-----</span>
+                <li>
+                  Employee Title:
+                  <span id="removeTitle" class="Value">-----</span>
                 </li>
-                <li id="departmentLbl">
-                  Employee Department: <span class="Value">-----</span>
+                <li>
+                  Employee Department:
+                  <span id="removeDepartment" class="Value">-----</span>
                 </li>
-                <li id="genderLbl">
-                  Employee Gender: <span class="Value">-----</span>
+                <li>
+                  Employee Gender:
+                  <span id="removeGender" class="Value">-----</span>
                 </li>
-                <li id="ageLbl">
-                  Employee Age: <span class="Value">-----</span>
+                <li>
+                  Employee Age: <span id="removeAge" class="Value">-----</span>
                 </li>
-                <li id="salaryLbl">
-                  Employee Salary(M): <span class="Value">-----</span>
+                <li>
+                  Employee Salary(M):
+                  <span id="removeSalary" class="Value">-----</span>
                 </li>
-                <li id="payLbl">
-                  Employee Pay: <span class="Value">-----</span>
+                <li>
+                  Employee Pay: <span id="removePay" class="Value">-----</span>
                 </li>
               </ul>
-              <button class="btn">Delete &#128465;</button>
+              <button id="deleteEmployeeButton" class="btn">
+                Delete &#128465;
+              </button>
             </div>
           </div>
 
@@ -231,7 +243,9 @@
                 <span
                   id="editProfilesSearchIcon"
                   class="icon"
-                  onclick="checkID('editProfilesSearchIcon')"
+                  onclick="
+                    checkID('editProfilesSearchBar', 'editProfilesComment')
+                  "
                   >&#128269;</span
                 >
               </div>
@@ -314,7 +328,9 @@
                 <span
                   id="checkProfilesSearchIcon"
                   class="icon"
-                  onclick="checkID('checkProfilesSearchIcon')"
+                  onclick="
+                    checkID('checkProfilesSearchBar', 'checkProfilesComment')
+                  "
                   >&#128269;</span
                 >
               </div>
