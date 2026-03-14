@@ -284,12 +284,14 @@
   display: flex;
   justify-content: space-around;
   gap: 5px;
+  flex-wrap: wrap;
 }
 #splashScreen ul li {
   background-color: hsla(0, 0%, 96%, 0.1);
   border-radius: 10px;
   text-align: center;
   padding: 3px 8px;
+  min-width: 100px;
 }
 #splashScreen > button {
   margin-top: 10px;

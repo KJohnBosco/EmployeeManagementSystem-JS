@@ -26,12 +26,14 @@
     display: flex;
     justify-content: space-around;
     gap: 5px;
+    flex-wrap: wrap;
 
     li {
       background-color: hsl(0, 0%, 96%, 10%);
       border-radius: 10px;
       text-align: center;
       padding: 3px 8px;
+      min-width: 100px;
     }
   }
 
