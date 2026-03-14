@@ -254,17 +254,17 @@
             <div class="contents">
               <fieldset>
                 <legend>Edit</legend>
-                <form action="">
+                <form action="" id="editEmployeeDetailsForm">
                   <div class="formGroup">
-                    <input id="EEregno" required type="text" />
+                    <input id="EEregno" name="id" required type="text" />
                     <label for="EEregno">RegNo</label>
                   </div>
                   <div class="formGroup">
-                    <input id="EEname" required type="text" />
+                    <input id="EEname" name="name" required type="text" />
                     <label for="EEname">Name</label>
                   </div>
                   <div class="formGroup">
-                    <input id="EEtitle" required type="text" />
+                    <input id="EEtitle" name="title" required type="text" />
                     <label for="EEtitle">Title</label>
                   </div>
                   <div class="formGroup">
@@ -290,11 +290,11 @@
                     </select>
                   </div>
                   <div class="formGroup">
-                    <input id="EEage" required type="number" />
+                    <input id="EEage" name="age" required type="number" />
                     <label for="EEage">Age</label>
                   </div>
                   <div class="formGroup">
-                    <input id="EEsalary" required type="number" />
+                    <input id="EEsalary" name="salary" required type="number" />
                     <label for="EEsalary">Salary</label>
                   </div>
                   <div class="formGroup">
@@ -309,7 +309,9 @@
 
                   <div class="buttons">
                     <button type="reset" class="btn">Reset</button>
-                    <button type="submit" class="btn">Save Changes</button>
+                    <button type="submit" class="btn" id="saveEditsBtn">
+                      Save Changes
+                    </button>
                   </div>
                 </form>
               </fieldset>

@@ -210,7 +210,7 @@ employee.addEmployee(
   "Marketing",
   "Male",
   22,
-  "11.5",
+  "11",
   "Monthly",
   "MD001RGEMP26M",
 );
@@ -220,7 +220,7 @@ employee.addEmployee(
   "Finance",
   "Female",
   26,
-  "25.5",
+  "26",
   "Monthly",
   "FD001MCEMP26F",
 );
@@ -230,7 +230,7 @@ employee.addEmployee(
   "Finance",
   "Female",
   25,
-  "5.5",
+  "8",
   "Weekly",
   "FD002RGEMP26F",
 );
@@ -287,6 +287,8 @@ const checkID = function (searchBarId, commentId) {
         break;
       case "removeEmployeesSearchBar":
         searchProfiles(employeeID, "remove");
+      case "editProfilesSearchBar":
+        searchProfiles(employeeID, "edit");
     }
   } else {
     // Defaults
@@ -301,24 +303,67 @@ const searchProfiles = function (employeeID, prefix) {
     (employee) => employee.id === employeeID,
   );
 
-  // Display Employee profile
-  document.getElementById(`${prefix}ID`).textContent = employeeProfile[0].id;
-  document.getElementById(`${prefix}Name`).textContent =
-    employeeProfile[0].name;
-  document.getElementById(`${prefix}Title`).textContent =
-    employeeProfile[0].title;
-  document.getElementById(`${prefix}Department`).textContent =
-    employeeProfile[0].department;
-  document.getElementById(`${prefix}Gender`).textContent =
-    employeeProfile[0].gender;
-  document.getElementById(`${prefix}Age`).textContent = employeeProfile[0].age;
-  document.getElementById(`${prefix}Salary`).textContent =
-    employeeProfile[0].salary;
-  document.getElementById(`${prefix}Pay`).textContent =
-    employeeProfile[0].paymentPeriod;
+  if (prefix === "edit") {
+    // Display Edit details
+    document.getElementById(`EEregno`).value = employeeProfile[0].id;
+    document.getElementById(`EEname`).value = employeeProfile[0].name;
+    document.getElementById(`EEtitle`).value = employeeProfile[0].title;
+    document.getElementById(`EEdepartment`).value =
+      employeeProfile[0].department;
+    document.getElementById(`EEgender`).value = employeeProfile[0].gender;
+    document.getElementById(`EEage`).value = employeeProfile[0].age;
+    document.getElementById(`EEsalary`).value = employeeProfile[0].salary;
+    document.getElementById(`EEpay`).value = employeeProfile[0].paymentPeriod;
+  } else {
+    // Display Employee profile
+    document.getElementById(`${prefix}ID`).textContent = employeeProfile[0].id;
+    document.getElementById(`${prefix}Name`).textContent =
+      employeeProfile[0].name;
+    document.getElementById(`${prefix}Title`).textContent =
+      employeeProfile[0].title;
+    document.getElementById(`${prefix}Department`).textContent =
+      employeeProfile[0].department;
+    document.getElementById(`${prefix}Gender`).textContent =
+      employeeProfile[0].gender;
+    document.getElementById(`${prefix}Age`).textContent =
+      employeeProfile[0].age;
+    document.getElementById(`${prefix}Salary`).textContent =
+      employeeProfile[0].salary;
+    document.getElementById(`${prefix}Pay`).textContent =
+      employeeProfile[0].paymentPeriod;
+  }
 
   console.log(employeeProfile[0]);
 };
+
+// ADDING NEW* EMPLOYEES /////////////////////////////////////////////////
+const newEmployeeForm = document.getElementById("addEmployeeForm");
+newEmployeeForm.addEventListener("submit", (e) => {
+  // Preventing default actions
+  e.preventDefault();
+
+  // Getting form data
+  const form = new FormData(e.target);
+
+  // converting to an object
+  const newEmployee = Object.fromEntries(form.entries());
+
+  // Add employee
+  employee.addEmployee(
+    newEmployee.name,
+    newEmployee.title,
+    newEmployee.department,
+    newEmployee.gender,
+    newEmployee.age,
+    newEmployee.salary,
+    newEmployee.paymentPeriod,
+    newEmployee.id,
+  );
+
+  // update stats
+  activeEmplyeesNo();
+  alert("User Added Successfully");
+});
 
 // REMOVE PROFILES
 const removeProfile = function () {
@@ -334,10 +379,67 @@ const removeProfile = function () {
   droppedEmployeesNo();
   alert("Employee deleted successfully");
 };
-
+// Add event listener to Delete button
 document
   .getElementById("deleteEmployeeButton")
   .addEventListener("click", removeProfile);
+
+// EDIT PROFILE
+// Get Edited / updated form
+const updateForm = document.getElementById("editEmployeeDetailsForm");
+
+updateForm.addEventListener("submit", (e) => {
+  // Prevent Defaults + reloads
+  e.preventDefault();
+
+  const formEdits = new FormData(e.target);
+
+  const formEntries = Object.fromEntries(formEdits.entries());
+
+  console.log(formEntries.id);
+
+  // Retrieve Target Profile
+  const targetProfile = employee.employeeList.find(
+    (emp) => emp.id === formEntries.id,
+  );
+
+  targetProfile.id = formEntries.id;
+  targetProfile.name = formEntries.name;
+  targetProfile.title = formEntries.title;
+  targetProfile.department = formEntries.department;
+  targetProfile.gender = formEntries.gender;
+  targetProfile.age = formEntries.age;
+  targetProfile.salary = formEntries.salary;
+  targetProfile.paymentPeriod = formEntries.pay;
+
+  // console.log(Object.entries(formEntries).flat());
+  // console.log(Object.entries(targetProfile).flat());
+});
+
+// document.getElementById('saveEditsBtn').addEventListener('click', updateProfile);
+
+// DISPLAY ALL EMPLOYEES' PROFILES /////////////////////////////////////////
+let position = 0;
+function changeEmployeePosition(navPosition) {
+  document.getElementById("allID").textContent =
+    employee.employeeList[navPosition].id;
+  document.getElementById("allName").textContent =
+    employee.employeeList[navPosition].name;
+  document.getElementById("allTitle").textContent =
+    employee.employeeList[navPosition].title;
+  document.getElementById("allDepartment").textContent =
+    employee.employeeList[navPosition].department;
+  document.getElementById("allGender").textContent =
+    employee.employeeList[navPosition].gender;
+  document.getElementById("allAge").textContent =
+    employee.employeeList[navPosition].age;
+  document.getElementById("allSalary").textContent =
+    employee.employeeList[navPosition].salary;
+  document.getElementById("allPay").textContent =
+    employee.employeeList[navPosition].paymentPeriod;
+}
+// Invoking profile display
+changeEmployeePosition(position);
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
@@ -427,29 +529,6 @@ droppedEmployeesNo();
 //   }
 // }
 
-// DISPLAY ALL EMPLOYEES' PROFILES /////////////////////////////////////////
-let position = 0;
-function changeEmployeePosition(navPosition) {
-  document.getElementById("allID").textContent =
-    employee.employeeList[navPosition].id;
-  document.getElementById("allName").textContent =
-    employee.employeeList[navPosition].name;
-  document.getElementById("allTitle").textContent =
-    employee.employeeList[navPosition].title;
-  document.getElementById("allDepartment").textContent =
-    employee.employeeList[navPosition].department;
-  document.getElementById("allGender").textContent =
-    employee.employeeList[navPosition].gender;
-  document.getElementById("allAge").textContent =
-    employee.employeeList[navPosition].age;
-  document.getElementById("allSalary").textContent =
-    employee.employeeList[navPosition].salary;
-  document.getElementById("allPay").textContent =
-    employee.employeeList[navPosition].paymentPeriod;
-}
-// Invoking profile display
-changeEmployeePosition(position);
-
 // Update navigation position listener
 document.getElementById("navLeft").addEventListener("click", () => {
   if (position > 0) {
@@ -464,34 +543,6 @@ document.getElementById("navRight").addEventListener("click", () => {
   changeEmployeePosition(position);
 });
 
-// ADDING NEW* EMPLOYEES /////////////////////////////////////////////////
-const newEmployeeForm = document.getElementById("addEmployeeForm");
-newEmployeeForm.addEventListener("submit", (e) => {
-  // Preventing default actions
-  e.preventDefault();
-
-  // Getting form data
-  const form = new FormData(e.target);
-
-  // converting to an object
-  const newEmployee = Object.fromEntries(form.entries());
-
-  // Add employee
-  employee.addEmployee(
-    newEmployee.name,
-    newEmployee.title,
-    newEmployee.department,
-    newEmployee.gender,
-    newEmployee.age,
-    newEmployee.salary,
-    newEmployee.paymentPeriod,
-    newEmployee.id,
-  );
-
-  // update stats
-  activeEmplyeesNo();
-  alert("User Added Successfully");
-});
 ////////////////////////////////////////
 ///////////////////////////////
 //////////////////
